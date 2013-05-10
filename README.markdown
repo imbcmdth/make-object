@@ -1,6 +1,6 @@
 # make-object
 
-Becasue even bad ideas need implementations.
+Because even bad ideas need implementations.
 
 ## Installation
 
