@@ -4,7 +4,18 @@
 // Turns "x[0][1].z" into {x: [[null, {z: value }]]}
 // Turns "[0][1]" into [[null, value ]]
 
-module.exports = (function() {
+(function (root, factory) {
+		"use strict";
+
+		if (typeof exports === 'object') {
+			module.exports = factory();
+		} else if (typeof define === 'function' && define.amd) {
+			define(factory);
+		} else {
+			root.MakeObject = factory();
+		}
+	}(this, function () {
+
 	function getArrayTokens(levelName, tokens) {
 		var levelTokens = levelName.split('[');
 		var tokenCount = levelTokens.length;
@@ -62,4 +73,4 @@ module.exports = (function() {
 		}
 		return targetObj;
 	};
-})();
+}));
